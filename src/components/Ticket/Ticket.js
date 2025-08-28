@@ -52,7 +52,11 @@ export default class Ticket extends React.Component {
                 <div className="col-md-6 box">
                     <select className="countrySelect" onChange={this.handleCountryChange}>
                         <option value="-1">Please Select ...</option>
-
+                        {Object.keys(this.state.countriesData).map((country) => 
+                            <option className="option" key={country} value={country}>
+                                {country}
+                            </option>
+                        )}
                     </select>
                 </div>
                 <div className="col-md-6 box">
