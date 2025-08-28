@@ -24,7 +24,13 @@ export default class Ticket extends React.Component {
             this.setState({
                 mainCountryCities: this.state.countriesData[selectedCountry]
             })
-        }     }
+        } else {
+            this.setState({
+                mainCountryCities: []
+            })
+        }
+        
+    }
 
 
     render() {
