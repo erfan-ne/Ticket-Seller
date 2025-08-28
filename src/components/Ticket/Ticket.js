@@ -14,7 +14,17 @@ export default class Ticket extends React.Component {
             },
             mainCountryCities: []
         }
+
+        this.handleCountryChange = this.handleCountryChange.bind(this)
     }
+
+    handleCountryChange(event) {
+        const selectedCountry = event.target.value
+        if (selectedCountry !== "-1") {
+            this.setState({
+                mainCountryCities: this.state.countriesData[selectedCountry]
+            })
+        }     }
 
 
     render() {
@@ -34,19 +44,15 @@ export default class Ticket extends React.Component {
                     <input className="emailInput" placeholder="Email" />
                 </div>
                 <div className="col-md-6 box">
-                    <select className="countrySelect">
+                    <select className="countrySelect" onChange={this.handleCountryChange}>
                         <option value="-1">Please Select ...</option>
-                        {/* {this.state.countriesData} */}
-                        {/* {console.log(this.state.countriesData.map((country) => console.log(country);
-                        ))} */}
-                        <option className="option" value="Iran">Iran</option>
-                        <option className="option" value="Turkey">Turkey</option>
-                        <option className="option" value="US">United State</option>
+
                     </select>
                 </div>
                 <div className="col-md-6 box">
                     <select className="citySelect">
                             <option value="-1">Please Select City</option>
+
                     </select>
                 </div>
                 <div className="col-md-12 box">
